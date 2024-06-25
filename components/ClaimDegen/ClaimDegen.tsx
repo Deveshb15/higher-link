@@ -37,32 +37,10 @@ const ClaimDegen = () => {
       if (!error && data.length > 0) {
         const hasClaimed = data[0].claimed;
         if (!hasClaimed) {
-          setTimeout(() => {
-            toast.success(
-              "Queued the claim, should reflect in your wallet soon, please check back in a few minutes.",
-              {
-                duration: 10000,
-              }
-            );
-            setLoading(false);
-          }, 5000);
-          const {
-            data: { hash },
-          } = await axios.post<{ hash: string }>("/api/claim", {
-            uid,
-            address: user?.wallet?.address,
-            chain: data[0].chain,
-          });
-          if (hash) {
-            console.log("HASH ", hash);
-            toast.success("Sucessfully Claimed the Tip!");
-            setAllowExport(true);
-            router.push("/claim/dashboard");
-          } else {
-            toast.error("Something went wrong, contact the team.");
-          }
+          router.push("/claim/dashboard");
         } else {
           toast.error("Tip has already been claimed!");
+          router.push("/claim/dashboard");
         }
       } else {
         toast.error("This Claim doesn't exist!");
@@ -119,6 +97,13 @@ const ClaimDegen = () => {
   }, [user?.wallet?.address]);
 
   console.log("CLAIM DATA ", user?.wallet?.address, claimData, loading);
+  const handleDashboard = () => {
+    if(user?.wallet?.address) {
+      router.push("/claim/dashboard");
+    } else {
+      login()
+    }
+  }
 
   return (
     <div>
@@ -131,7 +116,7 @@ const ClaimDegen = () => {
             <h3 className="text-black font-sans text-lg font-medium leading-[150%] mb-6 text-center">
               This Claim has already been claimed
             </h3>
-            <Button content={`Export Wallet`} onClick={exportWallet} />
+            <Button content={`Go to Dashboard`} onClick={() => handleDashboard()} />
           </div>
         </Card>
       ) : (
@@ -143,7 +128,7 @@ const ClaimDegen = () => {
             </h3>
             {ready && user && authenticated ? (
               allowExport ? (
-                <Button content={`Export Wallet`} onClick={exportWallet} />
+                <Button content={`Go to Dashboard`} onClick={() => handleDashboard()} />
               ) : (
                 <Button
                   content={`Claim $${TOKEN_NAME}`}

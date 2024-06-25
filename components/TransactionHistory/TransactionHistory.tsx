@@ -161,7 +161,7 @@ const TransactionHistory = () => {
                     </p>
                   )}
                   <Link
-                    href={`${chainId == 8453 ? `https://basescan.org/tx/${transaction.hash}` : `https://sepolia.basescan.org/tx/${transaction.hash}`}`}
+                    href={`https://basescan.org/tx/${transaction.hash}`}
                     target="_blank"
                     className="flex items-center gap-1 text-grey font-sans text-base font-normal leading-loose"
                   >
