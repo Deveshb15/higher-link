@@ -154,47 +154,6 @@ export function Email({
               </Section>
             </Section>
           </Section>
-          <Row
-            style={{
-              fontFamily: "Inter, sans-serif",
-              color: "#BEBEBE",
-              fontSize: "0.75rem",
-              backgroundColor: "black",
-              padding: "1rem 1rem",
-              fontWeight: "400",
-              position: "relative",
-            }}
-          >
-            <Column style={{ position: "absolute", left: 0 }}>
-              <Text
-                style={{
-                  margin: "0 1.5rem",
-                }}
-              >
-                FBI (Farcaster Builders India)
-              </Text>
-            </Column>
-            <Column style={{ position: "absolute", right: 0 }}>
-              <Link href="https://warpcast.com/~/channel/fbi">
-                <Img
-                  src="https://res.cloudinary.com/dczghbro7/image/upload/v1712654581/Farcaster_wvctdq.png"
-                  width="24"
-                  height="24"
-                  alt="Farcaster logo"
-                  style={{ display: "inline-block", marginRight: "1rem" }}
-                />
-              </Link>
-              <Link href="https://twitter.com/callusfbi">
-                <Img
-                  src="https://res.cloudinary.com/dczghbro7/image/upload/v1712654581/x_wnlane.png"
-                  width="24"
-                  height="24"
-                  alt="X logo"
-                  style={{ display: "inline-block", marginRight: "1rem" }}
-                />
-              </Link>
-            </Column>
-          </Row>
         </Container>
       </Body>
     </Html>
