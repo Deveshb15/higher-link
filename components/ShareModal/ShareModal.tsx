@@ -30,11 +30,11 @@ const ShareModal = ({
       </p>
       <div className="bg-beige flex justify-between py-4 md:px-8 px-4 rounded-xl w-full gap-10 mt-2">
         <p className="text-[#646464] font-sans text-base font-medium leading-5">
-        https://higher-link.vercel.app
+        https://higher.tokemail.xyz
         </p>
         <button
           onClick={async () => {
-            await window.navigator.clipboard.writeText("https://higher-link.vercel.app");
+            await window.navigator.clipboard.writeText("https://higher.tokemail.xyz");
             toast.success("Link Copied!");
           }}
         >
@@ -48,7 +48,7 @@ const ShareModal = ({
       </div>
       <div className="flex justify-evenly mt-8">
         <Link
-          href={`https://warpcast.com/~/compose?text=I just gifted some $${TOKEN_NAME} to a friend on higherlink.io!&embeds[]=https://higher-link.vercel.app`}
+          href={`https://warpcast.com/~/compose?text=I just gifted some $${TOKEN_NAME} to a friend on higherlink.io!&embeds[]=https://higher.tokemail.xyz`}
           target="_blank"
           className="flex flex-col items-center gap-3"
         >
