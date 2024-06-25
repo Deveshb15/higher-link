@@ -37,7 +37,20 @@ const ClaimDegen = () => {
       if (!error && data.length > 0) {
         const hasClaimed = data[0].claimed;
         if (!hasClaimed) {
-          router.push("/claim/dashboard");
+          const {
+            data: hash,
+          } = await axios.post<{ hash: string }>("/api/claim", {
+            uid,
+            address: user?.wallet?.address,
+            chain: data[0].chain,
+          });
+          if (hash) {
+            toast.success("Sucessfully Claimed the Tip!");
+            setAllowExport(true);
+            router.push("/claim/dashboard");
+          } else {
+            toast.error("Something went wrong, contact the team.");
+          }
         } else {
           toast.error("Tip has already been claimed!");
           router.push("/claim/dashboard");
