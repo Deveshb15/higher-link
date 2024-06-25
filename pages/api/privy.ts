@@ -19,7 +19,7 @@ const handler: NextApiHandler = async (req, res) => {
                 ]
             }, {
                 headers: {
-                    "privy-app-id": "clxr9cygi06gn3v696ck1f0ma",
+                    "privy-app-id": "clxuu09lm09xly8o9hillhm1a",
                     "Content-Type": "application/json",
                     "Authorization": `Basic ${process.env.PRIVY_API_SECRET}`,
                 }
