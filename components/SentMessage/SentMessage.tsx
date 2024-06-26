@@ -33,7 +33,7 @@ const SentMessage = () => {
         <div className="flex gap-4 mt-8 sm:flex-row flex-col w-full sm:w-auto">
           <Link
             target="_blank"
-            href={`${chainId == 8453 ? `https://basescan.org/tx/${hash}` : `https://sepolia.basescan.org/tx/${hash}`}`}
+            href={`https://basescan.org/tx/${hash}`}
             className="py-3 px-8 rounded-xl font-bold text-center font-sans text-base border border-dark-purple border-solid text-dark-purple"
           >
             View Transaction
