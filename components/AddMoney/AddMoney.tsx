@@ -27,6 +27,20 @@ const AddMoney = () => {
     setSelectedAmount(event.target.value);
   };
 
+  const handleSend = () => {
+    if(selectedAmount == "" || email == "") return;
+    // validate email
+    let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if(!emailRegex.test(email)) {
+      alert("Invalid email address");
+      return;
+    }
+
+    router.push(
+      `/confirm?amount=${selectedAmount}&email=${email}&note=${note}`
+    )
+  }
+
   return (
     <Card>
       <div className="font-sans flex justify-between pb-4 flex-col lg:flex-row gap-4">
@@ -109,11 +123,7 @@ const AddMoney = () => {
             />
             <Button
               content="SEND"
-              onClick={() =>
-                router.push(
-                  `/confirm?amount=${selectedAmount}&email=${email}&note=${note}`
-                )
-              }
+              onClick={handleSend}
               disabled={selectedAmount == "" || email == ""}
             />
           </div>
