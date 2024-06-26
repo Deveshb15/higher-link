@@ -21,7 +21,7 @@ import { PrivyProvider } from "@privy-io/react-auth";
 const config = getDefaultConfig({
   appName: "HigherLINK",
   projectId: "7febbd905df720d5866a44b58cd1b1a9",
-  chains: [base, baseSepolia],
+  chains: [base],
   // chains: [base],
 });
 const queryClient = new QueryClient();
