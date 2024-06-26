@@ -6,6 +6,7 @@ import { useAccount, useBalance } from "wagmi";
 import { formatEther } from "viem";
 import { useRouter } from "next/router";
 import { HIGHER_CONTRACT_ADDRESS, SEPOLIA_CONTRACT_ADDRESS, TOKEN_NAME } from "@/lib/utils";
+import toast from "react-hot-toast";
 
 const AddMoney = () => {
   const ethAmounts = ["100", "500", "1000", "5000"];
@@ -32,7 +33,9 @@ const AddMoney = () => {
     // validate email
     let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if(!emailRegex.test(email)) {
-      alert("Invalid email address");
+      toast.error("Invalid email address", {
+        position: "top-center",
+      });
       return;
     }
 
